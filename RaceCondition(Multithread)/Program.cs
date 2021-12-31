@@ -10,4 +10,6 @@ Console.WriteLine(total);
 Console.WriteLine();
 Console.WriteLine();
 
-Parallel.For(0, 100, () => 0, (x, loop, subtotal) => { return subtotal += x; }, (y) => { Interlocked.Add(ref total, y); });
+Parallel.For(0, 100, () => 0, (x, loop, subtotal) => { subtotal += x; return subtotal; }, (y) => { Interlocked.Add(ref total, y); });
+
+//Console.WriteLine(total);
